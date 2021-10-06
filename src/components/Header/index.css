@@ -1,0 +1,154 @@
+header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px var(--horizontal-padd);
+  background-color: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+header nav {
+  padding: 20px;
+  display: none;
+}
+
+header h2 {
+  margin: 0;
+}
+
+header h2 a {
+  letter-spacing: 1px;
+  color: #023246;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+header h2 a:hover {
+  letter-spacing: 1px;
+}
+
+header ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+}
+
+header ul li {
+  margin-left: 30px;
+  font-size: 0.8em;
+}
+
+header ul li:first-child {
+  margin: 0;
+}
+
+header ul li a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 0;
+  position: relative;
+  font-weight: 500;
+}
+
+header ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  transition: 0.2s;
+}
+
+header ul li a:hover {
+  color: #023246;
+}
+
+header ul li a:hover::after {
+  background-color: #023246;
+}
+
+.icon-wrapper {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: transparent;
+  display: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.icon-wrapper:hover {
+  background-color: #08547a;
+}
+
+.icon-wrapper.menu {
+  color: inherit;
+}
+.icon-wrapper.menu:hover {
+  color: #fff;
+}
+.icon-wrapper.close {
+  position: fixed;
+  right: 20px;
+  top: 12px;
+  color: #fff;
+}
+
+/* mobile */
+@media screen and (max-width: 640px) {
+  header {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+  header nav {
+    display: block;
+    cursor: pointer;
+  }
+  header ul {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    transform: translateX(100%);
+    flex-direction: column;
+    background-color: #287094;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+  }
+  header ul.show {
+    transform: translateX(0);
+  }
+
+  header ul li {
+    font-size: 1.4em;
+    margin: 40px 0 0;
+  }
+  header ul li:first-child {
+    margin: 0;
+  }
+  header ul li a {
+    color: #fff;
+  }
+
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-wrapper.close {
+    display: none;
+  }
+  .icon-wrapper.close.show {
+    display: flex;
+  }
+}
